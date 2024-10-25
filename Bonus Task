@@ -1,1 +1,9 @@
-Bonus tasks attempt
+Bonus tasks:
+The following bonus tasks are attempted, although they might not be correct or functioning as expected:
+The infrastructure has been created and can be implemented through the terraform file present in the repo.
+
+Another app1.py file is present which has the /metrics endpoint specifically used for the scraping of metrics 
+by prometheus for visualization to grafana.
+
+secret management is done through github secrets.
+rolling deployment is attempted.
