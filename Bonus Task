@@ -6,5 +6,6 @@ Another app1.py file is present which has the /metrics endpoint specifically use
 but due to time constraints, this file is not updated.
 prometheus for visualization to grafana.
 
-secret management is done through github secrets.
-rolling deployment is attempted.
+secret management is done through github secrets, for storing access to Google IAM roles.
+rolling deployment is scheduled from Console, for minimum downtime possible.
+
