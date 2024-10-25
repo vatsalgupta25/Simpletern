@@ -1,5 +1,5 @@
  **Flask Microservice**
-Welcome! This microservice is a simple Flask application that displays the message:
+ - Welcome! This microservice is a simple Flask application that displays the message:
 
 "Hello, this is Vatsal here, trying to deploy this."
 
