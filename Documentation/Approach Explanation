@@ -1,1 +1,22 @@
-will update soon
+Approach Explnation:
+
+Microservice used here is a simple flask service, displaying a simple text.
+the kubernetes setup:
+the microservice is first built into a docker image and pushed into the artifact repository of the GCP.
+now, the cluster is created in GKE. the control pane of the kubernetes here is managed by GCP.
+for the deployment, there are 3 replica pods created each having the image from the artifact repository.
+a load balancer is created to expose our service to the internet. we access the flask from the external ip of the load balancer. 
+the load balancer forwards this to the each replica pod of cluster. source port 80 to target port 5000.since the flask service is running on port 5000.
+the internal service of load load balancer is created through service.yaml file.
+the 3 replicas are created through deployment.yaml
+
+CI/CD pipeline:
+The codebase is in Github repo. on a push commit in the codebase, a new docker image is created which is testes for ubuntu environment.
+after the clearing of test, the image is pushed to the artifact repository. with receiving new image, the GKE cluster updated the ongoing pod deployment 
+with new deployment image.
+
+Problems faced:
+Actually this was my first deployment in GCP. usually i have been using AWS for my work. since I shifted to GCP i was faced with new IAM errors and the pipeline was broken several times due to this.
+I was also facing the problem to authenticate my cluster to use the image from the artifact repository. but this eventually solved from the GCP documentation.
+expect these, more or less everything was smooth. since the app was very simple there was no complexity involved in deployment.
+
