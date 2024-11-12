@@ -64,10 +64,10 @@ jobs:
           docker push "${DOCKER_TAG}"
 
       - name: Set up Kustomize
-        uses: "kubernetes-sigs/kustomize/actions/setup@v1"
+        uses: kubernetes-sigs/kustomize/actions/setup@v5.4.3
         with:
-          version: "v5.4.3"
-
+          version: 'v5.4.3'
+          
       - name: 'Deploy to GKE'
         run: |-
           ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
