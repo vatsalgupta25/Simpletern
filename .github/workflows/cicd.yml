@@ -63,14 +63,10 @@ jobs:
 
           docker push "${DOCKER_TAG}"
 
-      - name: Install Homebrew
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          echo "export PATH=/opt/homebrew/bin:$PATH" >> $GITHUB_ENV
-          
       - name: 'Set up Kustomize'
-        run: |
-          brew install kustomize
+        run: |-
+          curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz
+          chmod u+x ./kustomize
           
       - name: 'Deploy to GKE'
         run: |-
