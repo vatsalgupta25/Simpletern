@@ -36,17 +36,16 @@ name: 'Build and Deploy to GKE'
 on:
   push:
     branches:
-      - '"main"'
+      - main
 
 env:
-  PROJECT_ID: 'simpletern' # TODO: update to your Google Cloud project ID
-  GAR_LOCATION: 'asia-south1' # TODO: update to your region
-  GKE_CLUSTER: 'simpletern-cluster' # TODO: update to your cluster name
-  GKE_ZONE: 'asia-south1' # TODO: update to your cluster zone
-  DEPLOYMENT_NAME: 'gke-test' # TODO: update to your deployment name
-  REPOSITORY: 'simpletern-repo' # TODO: update to your Artifact Registry docker repository name
-  IMAGE: 'static-site'
-  WORKLOAD_IDENTITY_PROVIDER: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider' # TODO: update to your workload identity provider
+  PROJECT_ID: 'simpletern' 
+  GAR_LOCATION: 'asia-south1' 
+  GKE_CLUSTER: 'autopilot-cluster-2' 
+  GKE_ZONE: 'asia-south1' 
+  DEPLOYMENT_NAME: 'gke-test'
+  REPOSITORY: 'simpletern-repo' 
+  IMAGE: 'flask-app'
 
 jobs:
   setup-build-publish-deploy:
