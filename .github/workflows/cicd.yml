@@ -63,8 +63,12 @@ jobs:
 
           docker push "${DOCKER_TAG}"
 
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
       - name: 'Set up Kustomize'
-        run: |-
+        run: |
           brew install kustomize
 
       - name: 'Deploy to GKE'
