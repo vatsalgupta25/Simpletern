@@ -71,11 +71,6 @@ jobs:
           
       - name: Set up Kustomize and apply changes
         run: |
-          echo "GAR_LOCATION: $GAR_LOCATION"
-          echo "PROJECT_ID: $PROJECT_ID"
-          echo "REPOSITORY: $REPOSITORY"
-          echo "IMAGE: $IMAGE"
-          echo "GITHUB_SHA: $GITHUB_SHA"
           
           ./kustomize edit set image $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
           
